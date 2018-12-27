@@ -16,7 +16,16 @@ class Board
     bool diagWinner(int);
     
   public:
-    Board();
+    
+    Board()
+    {
+        for(int i = 0; i < 9; i++)
+        {
+             Tile t;
+            tiles.push_back(t);
+    
+        }
+    }
     
     void drawBoard();
     bool checkForWinner();
@@ -24,7 +33,7 @@ class Board
     void updateBoard(int, bool); //Int is the number for the tile to change the bool is to see if its to an X or O
     
     
-    ~Board();
+    ~Board(){};
     
 
 };

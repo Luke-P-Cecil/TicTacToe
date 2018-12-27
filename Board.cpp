@@ -11,15 +11,6 @@
 #include <iostream>
 
 
-Board :: Board()
-{
-  for(int i = 0; i < 9; i++)
-  {
-    Tile t;
-    tiles.push_back(t);
-    
-  }
-}
 
 // To hard code or to not hard code
 void Board :: drawBoard()
@@ -35,7 +26,7 @@ void Board :: drawBoard()
  */
  
   int tileCount = 0; //used to increment through tile vec
-  for(int i = 0; i < 11; i++)
+  for(int i = 0; i < 5; i++)
   {
     if( i == 0 || i % 2 == 0)
     {
@@ -59,8 +50,10 @@ bool Board :: checkForWinner()
 {
     for(int i = 0; i < 3; i++)
     {
-        return diagWinner(i) || verticalWinner(i) || horizontalWinner(i);
+        if(diagWinner(i) || verticalWinner(i) || horizontalWinner(i))
+                return true;
     } 
+    return false;
 }
 
 bool Board :: diagWinner(int i)
@@ -80,6 +73,8 @@ bool Board :: diagWinner(int i)
             else if(i == 2 && tiles[6].isO())
                     return true;
          }
+
+         return false;
 }
 
 bool Board :: verticalWinner(int i)
@@ -94,6 +89,7 @@ bool Board :: verticalWinner(int i)
          {
             return true;
          }
+         return false;
 }
 
 bool Board :: horizontalWinner(int i)
@@ -108,6 +104,7 @@ bool Board :: horizontalWinner(int i)
         {
             return true;
         }
+        return false;
 }
 
 void Board :: updateBoard(int tileNum, bool user)    //True is to an X False to an O
