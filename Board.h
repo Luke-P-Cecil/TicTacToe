@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Tile.h" //Need to make this
+#include "Tile.h"
 #include<iostream>
 #include<vector>
 
@@ -8,8 +8,12 @@
 class Board
 {
   private: 
-    vector<Tile>tiles;
+    std::vector<Tile>tiles;
     int boardSize = 3;
+    //Three helper functions for finding a winner
+    bool horizontalWinner(int);
+    bool verticalWinner(int);
+    bool diagWinner(int);
     
   public:
     Board();
@@ -17,10 +21,10 @@ class Board
     void drawBoard();
     bool checkForWinner();
     bool checkForOpenSpace();
-    void placeTiles(char);  //Char for selection of placement
+    void updateBoard(int, bool); //Int is the number for the tile to change the bool is to see if its to an X or O
     
     
     ~Board();
     
 
-}
+};
