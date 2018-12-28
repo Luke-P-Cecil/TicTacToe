@@ -3,16 +3,15 @@
 class Tile
 {
   private:
-    bool isEmpty = true;
-    bool isX = false;
-    bool isY = false;
-    
+    char symbol = '#'; 
   public:
-    Tile();
-    bool isEmpty() { return isEmpty; }
-    bool isX() { return isX; }
-    bool isY() { return isY; }
+    Tile(){};
+    bool emptySpace() { return symbol == '#'; }
+    bool isX() { return symbol == 'X'; }
+    bool isO() { return symbol == 'O'; }
+    void setSymbol(char c) { symbol = c; }
+    char getSymbol() { return symbol; }
     
-    ~Tile();
+    ~Tile(){};
 
-}
+};
