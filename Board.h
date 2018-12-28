@@ -13,7 +13,7 @@ class Board
     //Three helper functions for finding a winner
     bool horizontalWinner(int);
     bool verticalWinner(int);
-    bool diagWinner(int);
+    bool diagWinner();
     
   public:
     
@@ -31,6 +31,7 @@ class Board
     bool checkForWinner();
     bool checkForOpenSpace();
     void updateBoard(int, bool); //Int is the number for the tile to change the bool is to see if its to an X or O
+    bool placeable(int);
     
     
     ~Board(){};
